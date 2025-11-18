@@ -64,6 +64,12 @@ async function callAzureLanguageAPI(kind, text) {
   return response.data;
 }
 
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+
 app.post('/analyze/sentiment', async (req, res) => {
     const cleaned = validateText(req.body.text, res);
     if (!cleaned) return;
