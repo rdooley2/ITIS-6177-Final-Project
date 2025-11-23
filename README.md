@@ -19,6 +19,17 @@ The API accepts plain English text and forwards it to Azure Cognitive Services. 
 <img src="https://i.imgur.com/CUWbR29.png" height="80%" width="80%" alt="Validation Rules"/>
 <br/><br/>
 
+<h2>Vendor Documentation 📁</h2>
+Below is a list of the Azure Cognitive Services documentation that I utilized to build this project:
+<br/><br/>
+<ul>
+ <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/how-to/call-api?tabs=rest#development-options">Sentiment Analysis Guide</a></li>
+ <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/how-to/call-api?tabs=rest">Key Phrase Extraction Guide</a></li>
+ <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/entity-linking/how-to/call-api">Entity Recognition Guide</a></li>
+ <li><a href="https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1/javascript">JavaScript Examples</a></li>
+</ul>
+<br/>
+
 <h2>Authentication 🔐</h2>
 
 This code is designed to rely on an env file. Essentially, when the code makes the API Key and Azure Endpoint variables, it reads the env file and assigns those values. This allows the API to connect with the Azure API without having the values hard-coded into the code. For the practicality of this GitHub repository, I have uploaded the env file but have removed the original values to show how it would be formatted.
@@ -88,14 +99,6 @@ This endpoint functions by calling the previous three endpoints to form a single
 <br/><br/>
 <img src="https://i.imgur.com/uoWsLMn.png" height="80%" width="80%" alt="Full Analysis Breakdown"/>
 <br/><br/>
-
-For more information on Azure Cognitive Services and the documentation I utilized to build this project:
-<ul>
- <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/how-to/call-api?tabs=rest#development-options">Sentiment Analysis Guide</a></li>
- <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/how-to/call-api?tabs=rest">Key Phrase Extraction Guide</a></li>
- <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/entity-linking/how-to/call-api">Entity Recognition Guide</a></li>
- <li><a href="https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1/javascript">JavaScript Examples</a></li>
-</ul>
 
 For easier access to these endpoints, I have created a list:
 <ul>
