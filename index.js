@@ -10,7 +10,7 @@ app.use(express.json());
 const AZURE_ENDPOINT = process.env.AZURE_ENDPOINT;
 const AZURE_API_KEY = process.env.AZURE_API_KEY;
 const API_VERSION = "2023-11-15-preview";
-const MAX_LENGTH = 7500;
+const MAX_LENGTH = 5000;
 
 
 function validateText(text, res) {
