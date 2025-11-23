@@ -4,7 +4,7 @@
 <h2>Overview 📌</h2>
 
 This API provides simple access to the Microsoft Azure Language Services.
-All requests are proxied through this API, meaning no registration or configuration with Microsoft Azure is required.
+All requests are proxied through this API, meaning no registration or configuration with Microsoft Azure is required. This API utilizes Javascript, since it is so well known, to appeal to a wider audience. The same can be said for why this API uses Node.js and Express.
 
 This API utilizes four Azure AI Language endpoints:
 <ul>
@@ -40,7 +40,7 @@ This code is designed to rely on an env file. Essentially, when the code makes t
 
 Before explaining how to format a request, it's important to understand how the request body is validated before sending it off to the Azure AI Language endpoints. For simplicity's sake, all of the validation code exists in one predefined function and can be called later in the individual POST requests. Here is the full code:
 <br/><br/>
-<img src="https://i.imgur.com/5QNcNK7.png" height="80%" width="80%" alt="Validation Rules"/>
+<img src="https://i.imgur.com/KFxjfO6.png" height="80%" width="80%" alt="Validation Rules"/>
 <br/><br/>
 The first if statement ensures that the text is a string. If it were to be a non-string, it would throw an error message:
 <br/><br/>
@@ -50,11 +50,11 @@ The second if statement ensures that there is text in the request. If there is n
 <br/><br/>
 <img src="https://i.imgur.com/DhWpaki.png" height="80%" width="80%" alt="Validation Rules"/>
 <br/><br/>
-The third if statement ensures that the text is not too long. If the text goes over 7500 characters, the code will throw an error message:
+The third if statement ensures that the text is not too long. If the text goes over 5000 characters, the code will throw an error message:
 <br/><br/>
-<img src="https://i.imgur.com/OtmUlG2.png" height="80%" width="80%" alt="Validation Rules"/>
+<img src="https://i.imgur.com/4boPSAf.png" height="80%" width="80%" alt="Validation Rules"/>
 <br/><br/>
-If you follow all three of these rules, you should be all set to use the API correctly!
+These rules were put in place to ensure a proper request that would not cause errors furthur on in the request process. The text is capped at 5000 characters which is the limit set by Azure, but we know that it is for performance and scalability reasons. If you follow all three of these rules, you should be all set to use the API correctly!
 <br/><br/>
 <h2>Endpoint Breakdown 🛠️</h2>
 
@@ -65,29 +65,37 @@ As stated previously, this API utilizes four Azure AI Language endpoints. Those 
 
 This endpoint functions by analyzing text to determine if it is more positive, negative, or neutral. Have a look at this example request and response that I generated:
 <br/><br/>
-<img src="https://i.imgur.com/CHnmPXS.png" height="80%" width="80%" alt="Validation Rules"/>
+<img src="https://i.imgur.com/CHnmPXS.png" height="80%" width="80%" alt="Sentiment Analysis Breakdown"/>
 <br/><br/>
 
 <h3>Key Phrase Extraction</h3>
 
 This endpoint functions by analyzing text to determine the key phrases within the sentence. Have a look at this example request and response that I generated:
 <br/><br/>
-<img src="https://i.imgur.com/FclPGwm.png" height="80%" width="80%" alt="Validation Rules"/>
+<img src="https://i.imgur.com/FclPGwm.png" height="80%" width="80%" alt="Key Phrase Extraction Breakdown"/>
 <br/><br/>
 
 <h3>Entity Recognition</h3>
 
 This endpoint functions by analyzing text to determine the different entities within a sentence. Entities can be a person, place, time, quantity, etc. Have a look at this example request and response that I generated:
 <br/><br/>
-<img src="https://i.imgur.com/su2yvdh.png" height="80%" width="80%" alt="Validation Rules"/>
+<img src="https://i.imgur.com/su2yvdh.png" height="80%" width="80%" alt="Entity Recognition Breakdown"/>
 <br/><br/>
 
 <h3>Full Analysis</h3>
 
 This endpoint functions by calling the previous three endpoints to form a single giant response. Have a look at this example request and response that I generated:
 <br/><br/>
-<img src="https://i.imgur.com/uoWsLMn.png" height="80%" width="80%" alt="Validation Rules"/>
+<img src="https://i.imgur.com/uoWsLMn.png" height="80%" width="80%" alt="Full Analysis Breakdown"/>
 <br/><br/>
+
+For more information on Azure Cognitive Services and the documentation I utilized to build this project:
+<ul>
+ <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/how-to/call-api?tabs=rest#development-options">Sentiment Analysis Guide</a></li>
+ <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/how-to/call-api?tabs=rest">Key Phrase Extraction Guide</a></li>
+ <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/entity-linking/how-to/call-api">Entity Recognition Guide</a></li>
+ <li><a href="https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1/javascript">JavaScript Examples</a></li>
+</ul>
 
 For easier access to these endpoints, I have created a list:
 <ul>
