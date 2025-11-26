@@ -19,17 +19,6 @@ The API accepts plain English text and forwards it to Azure Cognitive Services. 
 <img src="https://i.imgur.com/CUWbR29.png" height="80%" width="80%" alt="Validation Rules"/>
 <br/><br/>
 
-<h2>Vendor Documentation 📁</h2>
-Below is a list of the Azure Cognitive Services documentation that I utilized to build this project:
-<br/><br/>
-<ul>
- <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/how-to/call-api?tabs=rest#development-options">Sentiment Analysis Guide</a></li>
- <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/how-to/call-api?tabs=rest">Key Phrase Extraction Guide</a></li>
- <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/entity-linking/how-to/call-api">Entity Recognition Guide</a></li>
- <li><a href="https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1/javascript">JavaScript Examples</a></li>
-</ul>
-<br/>
-
 <h2>Authentication 🔐</h2>
 
 This code is designed to rely on an env file. Essentially, when the code makes the API Key and Azure Endpoint variables, it reads the env file and assigns those values. This allows the API to connect with the Azure API without having the values hard-coded into the code. For the practicality of this GitHub repository, I have uploaded the env file but have removed the original values to show how it would be formatted.
@@ -69,50 +58,57 @@ These rules were put in place to ensure a proper request that would not cause er
 <br/><br/>
 <h2>Endpoint Breakdown 🛠️</h2>
 
-As stated previously, this API utilizes four Azure AI Language endpoints. Those being Sentiment Analysis, Key Phrase Extraction, Entity Recognition, and Full Analysis. Let's take a look at each to understand exactly what they are doing. 
-<br/><br/>
-
-<h3>Sentiment Analysis</h3>
-
-This endpoint functions by analyzing text to determine if it is more positive, negative, or neutral. Have a look at this example request and response that I generated:
-<br/><br/>
-<img src="https://i.imgur.com/CHnmPXS.png" height="80%" width="80%" alt="Sentiment Analysis Breakdown"/>
-<br/><br/>
-
-<h3>Key Phrase Extraction</h3>
-
-This endpoint functions by analyzing text to determine the key phrases within the sentence. Have a look at this example request and response that I generated:
-<br/><br/>
-<img src="https://i.imgur.com/FclPGwm.png" height="80%" width="80%" alt="Key Phrase Extraction Breakdown"/>
-<br/><br/>
-
-<h3>Entity Recognition</h3>
-
-This endpoint functions by analyzing text to determine the different entities within a sentence. Entities can be a person, place, time, quantity, etc. Have a look at this example request and response that I generated:
-<br/><br/>
-<img src="https://i.imgur.com/su2yvdh.png" height="80%" width="80%" alt="Entity Recognition Breakdown"/>
-<br/><br/>
-
-<h3>Full Analysis</h3>
-
-This endpoint functions by calling the previous three endpoints to form a single giant response. Have a look at this example request and response that I generated:
-<br/><br/>
-<img src="https://i.imgur.com/uoWsLMn.png" height="80%" width="80%" alt="Full Analysis Breakdown"/>
-<br/><br/>
-
-For easier access to these endpoints, I have created a list:
-<ul>
- <li>http://138.68.43.128:3000/analyze/sentiment</li>
- <li>http://138.68.43.128:3000/analyze/key-phrases</li>
- <li>http://138.68.43.128:3000/analyze/entities</li>
- <li>http://138.68.43.128:3000/analyze/full</li>
-</ul>
-
-In addition, here is the text that was used to test the API. Feel free to copy it and play around with the text contents!
+Before jumping into the endpoints, here is the text that I used to test the API. Feel free to copy it and play around with it as you go through the documentation!
 <pre>
 {
   "text": "My boss recently assigned me two conduct cases. They are due on November 21st and I am short on time."
 }</pre>
+<br/>
+
+As stated previously, this API utilizes four Azure AI Language endpoints. Those being Sentiment Analysis, Key Phrase Extraction, Entity Recognition, and Full Analysis. Let's take a look at each to understand exactly what they are doing. 
+<br/><br/>
+
+<h3>Sentiment Analysis</h3>
+This endpoint functions by analyzing text to determine if it is more positive, negative, or neutral. Have a look at this example request and response that I generated:
+<br/><br/>
+<li>http://138.68.43.128:3000/analyze/sentiment</li><br/>
+<br/>
+<img src="https://i.imgur.com/CHnmPXS.png" height="80%" width="80%" alt="Sentiment Analysis Breakdown"/>
+<br/>
+
+<h3>Key Phrase Extraction</h3>
+This endpoint functions by analyzing text to determine the key phrases within the sentence. Have a look at this example request and response that I generated:
+<br/><br/>
+<li>http://138.68.43.128:3000/analyze/key-phrases</li><br/>
+<br/>
+<img src="https://i.imgur.com/FclPGwm.png" height="80%" width="80%" alt="Key Phrase Extraction Breakdown"/>
+<br/>
+
+<h3>Entity Recognition</h3>
+This endpoint functions by analyzing text to determine the different entities within a sentence. Entities can be a person, place, time, quantity, etc. Have a look at this example request and response that I generated:
+<br/><br/>
+<li>http://138.68.43.128:3000/analyze/entities</li><br/>
+<br/>
+<img src="https://i.imgur.com/su2yvdh.png" height="80%" width="80%" alt="Entity Recognition Breakdown"/>
+<br/>
+
+<h3>Full Analysis</h3>
+This endpoint functions by calling the previous three endpoints to form a single giant response. Have a look at this example request and response that I generated:
+<br/><br/>
+<li>http://138.68.43.128:3000/analyze/full</li><br/>
+<br/>
+<img src="https://i.imgur.com/uoWsLMn.png" height="80%" width="80%" alt="Full Analysis Breakdown"/>
+<br/>
+
+<h2>Vendor Documentation 📁</h2>
+Below is a list of the Azure Cognitive Services documentation that I utilized to build this project:
+<br/><br/>
+<ul>
+ <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/how-to/call-api?tabs=rest#development-options">Sentiment Analysis Guide</a></li>
+ <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/how-to/call-api?tabs=rest">Key Phrase Extraction Guide</a></li>
+ <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/entity-linking/how-to/call-api">Entity Recognition Guide</a></li>
+ <li><a href="https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1/javascript">JavaScript Examples</a></li>
+</ul>
 <br/>
 
 <h2>Conclusion ✅</h2> 
